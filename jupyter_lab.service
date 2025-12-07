@@ -1,0 +1,16 @@
+[Unit]
+Description=JupyterLab Web Service
+After=network.target
+
+[Service]
+ExecStart=/srv/JupyterLab_Service/.venv/bin/jupyter-lab
+WorkingDirectory=/srv/JupyterLab_Service/Notebooks
+Restart=always
+User=mega
+Group=mega
+#StandardOutput=null
+#StandardError=journal
+#Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
