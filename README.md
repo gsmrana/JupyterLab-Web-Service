@@ -1,20 +1,41 @@
 # JupyterLab Web Service
-Deploy JupyterLab as web service to use it using any web browser.
+Deploy JupyterLab as a web service to use it using any web browser.
 
-## Install Python package manager UV
+## Environment Setup
+
+Install Python and UV Package Manager
+
 https://docs.astral.sh/uv/getting-started/installation
 
-## Environment setup
-1. Setup required packages.
+```
+winget install --id Python.Python.3.12
+winget install --id=astral-sh.uv  -e
+```
+
+Install packages in a virtual environment
 
 ```
 uv sync
+```
+
+Upgrade all packages
+
+```
+uv lock --upgrade
+uv sync
+```
+
+## Configure the application
+
+Configure jupyter-lab
+
+```
 jupyter-lab --generate-config
 jupyter-lab password
 cat jupyter_lab_config.py >> ~/.jupyter/jupyter_lab_config.py
 ```
 
-2. Install and run systemd service.
+## Install and run systemd service (Linux)
 
 ```
 sudo cp jupyter_lab.service /etc/systemd/system/jupyter_lab.service
@@ -23,4 +44,4 @@ sudo systemctl enable jupyter_lab.service
 sudo systemctl restart jupyter_lab.service
 ```
 
-3. Browse url: http://localhost:8888/lab
+- Browse url: http://localhost:8888/lab
