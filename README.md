@@ -30,10 +30,18 @@ uv sync
 Configure jupyter-lab
 
 ```
-jupyter-lab --generate-config
-jupyter-lab password
+uv run jupyter-lab --generate-config
+uv run jupyter-lab password
 cat jupyter_lab_config.py >> ~/.jupyter/jupyter_lab_config.py
 ```
+
+## Run the application
+
+```
+uv run jupyter-lab --notebook-dir=Notebooks
+```
+
+- Browse: http://localhost:8888/lab
 
 ## Install and run systemd service (Linux)
 
@@ -43,5 +51,3 @@ sudo systemctl daemon-reload
 sudo systemctl enable jupyter_lab.service
 sudo systemctl restart jupyter_lab.service
 ```
-
-- Browse url: http://localhost:8888/lab
