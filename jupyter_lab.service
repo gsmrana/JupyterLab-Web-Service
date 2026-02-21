@@ -3,11 +3,13 @@ Description=JupyterLab Web Service
 After=network.target
 
 [Service]
-ExecStart=/srv/JupyterLab_Service/.venv/bin/jupyter-lab
-WorkingDirectory=/srv/JupyterLab_Service/Notebooks
+ExecStart=/srv/JupyterLab-Web-Service/.venv/bin/jupyter-lab --ip=0.0.0.0 --no-browser
+WorkingDirectory=/srv/JupyterLab-Web-Service/Notebooks
 Restart=always
-User=mega
-Group=mega
+RestartSec=3
+User=root
+Group=root
+
 #StandardOutput=null
 #StandardError=journal
 #Environment=PYTHONUNBUFFERED=1

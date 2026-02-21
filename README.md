@@ -51,3 +51,19 @@ sudo systemctl daemon-reload
 sudo systemctl enable jupyter_lab.service
 sudo systemctl restart jupyter_lab.service
 ```
+
+## Install and run launchd service (macOS)
+
+```
+sudo cp com.jupyterlabweb.service.plist /Library/LaunchDaemons/
+sudo chown root:wheel /Library/LaunchDaemons/com.jupyterlabweb.service.plist
+sudo chmod 644 /Library/LaunchDaemons/com.jupyterlabweb.service.plist
+```
+
+```
+# first start
+sudo launchctl load -w /Library/LaunchDaemons/com.jupyterlabweb.service.plist
+
+# restart
+sudo launchctl kickstart -k system/com.jupyterlabweb.service
+```

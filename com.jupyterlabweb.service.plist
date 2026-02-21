@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.jupyterlabweb.service</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/JupyterLab-Web-Service/.venv/bin/jupyter-lab</string>
+        <string>--ip=0.0.0.0</string>
+        <string>--no-browser</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/opt/JupyterLab-Web-Service/Notebooks</string>
+
+    <key>UserName</key>
+    <string>root</string>
+
+    <key>GroupName</key>
+    <string>wheel</string>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>ThrottleInterval</key>
+    <integer>3</integer>
+
+    <key>StandardOutPath</key>
+    <string>/opt/JupyterLab-Web-Service/jupyterlabweb.out.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/opt/JupyterLab-Web-Service/jupyterlabweb.err.log</string>
+</dict>
+</plist>
