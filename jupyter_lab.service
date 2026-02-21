@@ -3,7 +3,7 @@ Description=JupyterLab Web Service
 After=network.target
 
 [Service]
-ExecStart=/srv/JupyterLab-Web-Service/.venv/bin/jupyter-lab --ip=0.0.0.0 --no-browser
+ExecStart=/srv/JupyterLab-Web-Service/.venv/bin/jupyter-lab --ip=0.0.0.0 --no-browser --allow-root
 WorkingDirectory=/srv/JupyterLab-Web-Service/Notebooks
 Restart=always
 RestartSec=3
