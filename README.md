@@ -25,7 +25,7 @@ uv lock --upgrade
 uv sync
 ```
 
-## Configure the application
+## Configure the application (Optional)
 
 Configure jupyter-lab
 
@@ -38,32 +38,45 @@ cat jupyter_lab_config.py >> ~/.jupyter/jupyter_lab_config.py
 ## Run the application
 
 ```
-uv run jupyter-lab --notebook-dir=Notebooks
+uv run jupyter-lab --ip=0.0.0.0 --port=8888 --notebook-dir=Notebooks
 ```
 
 - Browse: http://localhost:8888/lab
 
 ## Install and run systemd service (Linux)
 
+Service Setup
 ```
 sudo cp jupyter_lab.service /etc/systemd/system/jupyter_lab.service
 sudo systemctl daemon-reload
 sudo systemctl enable jupyter_lab.service
+```
+
+Service Start/Restart
+```
 sudo systemctl restart jupyter_lab.service
 ```
 
 ## Install and run launchd service (macOS)
 
+Service Setup
 ```
 sudo cp com.jupyterlabweb.service.plist /Library/LaunchDaemons/
 sudo chown root:wheel /Library/LaunchDaemons/com.jupyterlabweb.service.plist
 sudo chmod 644 /Library/LaunchDaemons/com.jupyterlabweb.service.plist
 ```
 
+Service First Load
 ```
-# first start
 sudo launchctl load -w /Library/LaunchDaemons/com.jupyterlabweb.service.plist
+```
 
-# restart
+Service Stop
+```
+sudo launchctl bootout system /Library/LaunchDaemons/com.jupyterlabweb.service.plist
+```
+
+Service Restart
+```
 sudo launchctl kickstart -k system/com.jupyterlabweb.service
 ```

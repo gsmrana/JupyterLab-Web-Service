@@ -9,6 +9,7 @@
     <array>
         <string>/opt/JupyterLab-Web-Service/.venv/bin/jupyter-lab</string>
         <string>--ip=0.0.0.0</string>
+        <string>--port=8888</string>
         <string>--no-browser</string>
         <string>--allow-root</string>
     </array>
@@ -26,7 +27,7 @@
     <true/>
 
     <key>ThrottleInterval</key>
-    <integer>3</integer>
+    <integer>30</integer>
 
     <key>StandardOutPath</key>
     <string>/opt/JupyterLab-Web-Service/jupyterlabweb.out.log</string>
